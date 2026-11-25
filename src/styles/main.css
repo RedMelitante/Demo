@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from the design handoff */
+html { scroll-padding-top: 88px; }
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
+.hero-shade { background: linear-gradient(90deg, rgba(21,41,30,.92) 0%, rgba(21,41,30,.75) 45%, rgba(21,41,30,.25) 100%); }
+@media (max-width: 767px) { .hero-shade { background: rgba(21,41,30,.78); } }
