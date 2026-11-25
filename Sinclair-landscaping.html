@@ -43,6 +43,11 @@
   }
   </script>
 </head>
+<!--
+  PLACEHOLDER PHOTOS: the 10 images in src/assets/images/sinclair/ (sls-*.jpg) and public/sinclair/og-image.jpg are
+  stock Unsplash photos standing in until the client's own photos are supplied. Overwrite each file with the real
+  photo of the same name; no code changes are needed. Until then, captions and alt text describe the intended photos.
+-->
 <body id="top" class="bg-cream text-ink font-sans">
 
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
@@ -443,7 +448,7 @@
     </section>
 
     <!-- ============ FROM THE BLOG ============ -->
-    <!-- DEMO: links to sample articles on the blog page (/Sinclair-landscaping/blog, source Sinclair-landscaping/blog.html). CONFIRM WITH CLIENT before going live. -->
+    <!-- DEMO: sample articles. The blog page (blog.html) has not been supplied yet, so these links point to the FAQ for now. When it arrives, add it as Sinclair-landscaping/blog.html and point these links at /Sinclair-landscaping/blog. CONFIRM WITH CLIENT before going live. -->
     <section class="py-20 lg:py-28" aria-labelledby="homeBlogTitle">
       <div class="max-w-7xl mx-auto px-5 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
@@ -451,10 +456,10 @@
             <p class="text-sm font-semibold tracking-wide uppercase text-clay">Blog &amp; Articles</p>
             <h2 id="homeBlogTitle" class="font-serif text-4xl sm:text-5xl text-forest mt-3 font-medium">Garden tips for Melbourne homes</h2>
           </div>
-          <a href="/Sinclair-landscaping/blog" class="inline-flex items-center gap-2 self-start sm:self-auto rounded-full border-2 border-forest text-forest hover:bg-forest hover:text-cream px-6 py-3 font-semibold transition-colors">View all articles <span aria-hidden="true">→</span></a>
+          <a href="#faq" class="inline-flex items-center gap-2 self-start sm:self-auto rounded-full border-2 border-forest text-forest hover:bg-forest hover:text-cream px-6 py-3 font-semibold transition-colors">View all articles <span aria-hidden="true">→</span></a>
         </div>
         <div class="mt-12 grid md:grid-cols-2 gap-6 lg:gap-8">
-          <a href="/Sinclair-landscaping/blog#turf" class="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col sm:flex-row">
+          <a href="#faq" class="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col sm:flex-row">
             <span class="sm:w-2/5 shrink-0 overflow-hidden"><img src="/src/assets/images/sinclair/sls-turf-paving-hd.jpg" alt="New turf with stepping pads and recycled brick paving in a Melbourne backyard" width="600" height="450" loading="lazy" class="w-full h-full aspect-[4/3] sm:aspect-auto object-cover group-hover:scale-105 transition-transform duration-500"></span>
             <span class="p-7 flex flex-col">
               <span class="text-xs uppercase tracking-widest font-semibold text-clay">Turf &amp; lawns</span>
@@ -463,7 +468,7 @@
               <span class="mt-auto pt-5 text-sm font-semibold text-forest group-hover:text-clay">Read article →</span>
             </span>
           </a>
-          <a href="/Sinclair-landscaping/blog#walls" class="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col sm:flex-row">
+          <a href="#faq" class="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col sm:flex-row">
             <span class="sm:w-2/5 shrink-0 overflow-hidden"><img src="/src/assets/images/sinclair/sls-retaining-wall-hd.jpg" alt="Timber sleeper retaining wall with galvanised steel posts" width="600" height="450" loading="lazy" class="w-full h-full aspect-[4/3] sm:aspect-auto object-cover group-hover:scale-105 transition-transform duration-500"></span>
             <span class="p-7 flex flex-col">
               <span class="text-xs uppercase tracking-widest font-semibold text-clay">Retaining walls</span>
@@ -636,7 +641,7 @@
           <li><a href="#work" class="hover:text-white">Our Work</a></li>
           <li><a href="#about" class="hover:text-white">About</a></li>
           <li><a href="#faq" class="hover:text-white">FAQs</a></li>
-          <li><a href="/Sinclair-landscaping/blog" class="hover:text-white">Blog</a></li>
+          <li><a href="#faq" class="hover:text-white">Blog</a></li>
           <li><a href="#quote" class="hover:text-white">Get a Quote</a></li>
         </ul>
       </div>
