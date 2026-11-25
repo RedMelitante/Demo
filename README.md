@@ -1,14 +1,16 @@
 # Organic Gardening Australia
 
-Production website for **Organic Gardening Australia**, a chemical-free gardening service in Melbourne, VIC.
-Built from the Claude Design handoff (`Organic Gardening Australia.html`), keeping its layout, styles and copy.
+Two demo websites built from Claude Design handoffs, keeping their layouts, styles and copy:
+
+- `/`: **Organic Gardening Australia**, a chemical-free gardening service in Melbourne (`Organic Gardening Australia.html`)
+- `/landscaping/`: **Notlee Landscapes**, landscape design and construction in Melbourne's south-east (`notlee-landscapes-demo.html`)
 
 ## Stack
 
 - [Vite](https://vite.dev/) for the dev server and production build (hashed, cache-busted assets)
 - [Tailwind CSS 3](https://v3.tailwindcss.com/) compiled at build time (replaces the Tailwind Play CDN used in the handoff)
 - Vanilla JavaScript (ES module) for the mobile menu, smooth scrolling, service pre-select and quote form
-- Google Fonts: Fraunces (display) and Plus Jakarta Sans (body)
+- Google Fonts: Fraunces and Plus Jakarta Sans (home page); Outfit and Inter (landscaping page)
 
 ## Getting started
 
@@ -38,16 +40,19 @@ Build command: `npm run build` · Output directory: `dist`.
 ```
 index.html                 Home page, served at / (all sections, copy, SEO meta, LocalBusiness JSON-LD)
 landscaping/
-  index.html               Landscaping page, served at /landscaping/ (starter content)
+  index.html               Notlee Landscapes page, served at /landscaping/
 src/
   main.js                  Home page behaviour (menu, smooth scroll, quote form)
-  landscaping/main.js      Landscaping page behaviour (menu, header shadow, year)
-  styles/main.css          Shared Tailwind entry + custom rules from the handoff
-  assets/images/           On-page photos (hashed into dist/assets at build)
+  styles/main.css          Home page Tailwind entry + custom rules
+  landscaping/main.js      Landscaping page behaviour (header, menu, 3D hero cards, blog pop-ups, quote form)
+  landscaping/styles.css   Landscaping page Tailwind entry (uses its own config via @config) + custom rules
+  assets/images/           Home page photos (hashed into dist/assets at build)
+  assets/images/landscaping/  Landscaping page photos
 public/
   favicon.svg              Leaf favicon
   og-image.jpg             1200x630 social share image
-tailwind.config.js         Design tokens (colours, fonts) and the files Tailwind scans
+tailwind.config.js         Home page design tokens (colours, fonts)
+tailwind.landscaping.config.js  Landscaping page design tokens
 postcss.config.js
 vite.config.js             Build config, including the list of page entries
 wrangler.jsonc             Cloudflare static-assets deploy of dist/
@@ -57,20 +62,28 @@ wrangler.jsonc             Cloudflare static-assets deploy of dist/
 
 | URL             | Source                    |
 | --------------- | ------------------------- |
-| `/`             | `index.html`              |
-| `/landscaping/` | `landscaping/index.html`  |
+| `/`             | `index.html` (Organic Gardening Australia) |
+| `/landscaping/` | `landscaping/index.html` (Notlee Landscapes) |
+
+Each page has its own stylesheet and Tailwind config, because the two designs use different colours and fonts under the same token names (`forest`, `leaf`, `wattle`).
 
 Cloudflare redirects `/landscaping` and `/landscaping/index.html` to `/landscaping/`.
 
 To add another page, for example `/about-us/`:
 
-1. Create `about-us/index.html`. Link `/src/styles/main.css` for the shared styles and add a script such as `/src/about-us/main.js` if needed.
+1. Create `about-us/index.html`, plus a script such as `/src/about-us/main.js` if needed.
 2. Add it to `build.rolldownOptions.input` in `vite.config.js`.
-3. Add `'./about-us/**/*.html'` to `content` in `tailwind.config.js`. Without this, classes used only on that page are left out of the CSS.
+3. Styles:
+   - **Same design as an existing page:** link that page's stylesheet and add `'./about-us/**/*.html'` to `content` in that page's Tailwind config.
+   - **Its own design:** copy `src/landscaping/styles.css` and `tailwind.landscaping.config.js`, point the `@config` line at the new config, and set its `content` to the new page's files.
+
+   Without the `content` entry, classes used only on that page are left out of the CSS.
 
 `wrangler.jsonc` needs no change: it uploads everything in `dist/`.
 
-## Design tokens
+## Design tokens (home page)
+
+The landscaping page's tokens are in `tailwind.landscaping.config.js`.
 
 | Token        | Value     | Use                               |
 | ------------ | --------- | --------------------------------- |
@@ -95,5 +108,5 @@ The handoff marks several items to confirm with the client. Search `index.html` 
 - **Reviews:** the three reviews are labelled samples. Replace them with real reviews (with permission).
 - **Quote form:** front-end only for now. Connect a form service (Web3Forms, Formspree or a serverless function). See the `FORM BACKEND` comment in `index.html` and the `TODO` in `src/main.js`.
 - **Indexing:** remove `<meta name="robots" content="noindex, nofollow">` and update the `canonical`, `og:url`, `og:image` and JSON-LD URLs if the live domain differs from `demo.organicgardeningaustralia.com`.
-- **Landscaping page:** the copy is draft starter text and the photos are reused from the home page. Replace both, and consider linking to the page from the home page nav.
+- **Landscaping page (Notlee):** keep the demo notice bar until the client signs off. Confirm permission to use the Instagram photos, the sample reviews, blog articles, service list, hours and service areas (search for `CONFIRM WITH CLIENT`). The quote form also has no backend yet.
 - **Business details:** hours, service areas, "started in 2018", "family-run", insurance and police-check wording, email address and social links.

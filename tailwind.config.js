@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 // Design tokens from the Claude Design handoff (Organic Gardening Australia.html).
 export default {
-  content: ['./index.html', './landscaping/**/*.html', './src/**/*.{js,css}'],
+  // Home page only. The /landscaping/ page has its own config (tailwind.landscaping.config.js).
+  content: ['./index.html', './src/main.js'],
   theme: {
     extend: {
       colors: {
