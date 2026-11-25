@@ -4,6 +4,7 @@ Two demo websites built from Claude Design handoffs, keeping their layouts, styl
 
 - `/`: **Organic Gardening Australia**, a chemical-free gardening service in Melbourne (`Organic Gardening Australia.html`)
 - `/landscaping/`: **Notlee Landscapes**, landscape design and construction in Melbourne's south-east (`notlee-landscapes-demo.html`)
+- `/Sinclair-landscaping`: **Sinclair Landscaping Solutions**, landscaping across Melbourne (`Sinclair_Landscaping_Solutions.html`)
 
 ## Stack
 
@@ -41,18 +42,23 @@ Build command: `npm run build` · Output directory: `dist`.
 index.html                 Home page, served at / (all sections, copy, SEO meta, LocalBusiness JSON-LD)
 landscaping/
   index.html               Notlee Landscapes page, served at /landscaping/
+Sinclair-landscaping.html  Sinclair Landscaping Solutions page, served at /Sinclair-landscaping
 src/
   main.js                  Home page behaviour (menu, smooth scroll, quote form)
   styles/main.css          Home page Tailwind entry + custom rules
   landscaping/main.js      Landscaping page behaviour (header, menu, 3D hero cards, blog pop-ups, quote form)
   landscaping/styles.css   Landscaping page Tailwind entry (uses its own config via @config) + custom rules
+  sinclair/main.js         Sinclair page behaviour (menu, header shadow, quote form)
+  sinclair/styles.css      Sinclair page Tailwind entry (own config via @config) + custom rules
   assets/images/           Home page photos (hashed into dist/assets at build)
   assets/images/landscaping/  Landscaping page photos
+  assets/images/sinclair/  Sinclair page photos
 public/
   favicon.svg              Leaf favicon
   og-image.jpg             1200x630 social share image
 tailwind.config.js         Home page design tokens (colours, fonts)
 tailwind.landscaping.config.js  Landscaping page design tokens
+tailwind.sinclair.config.js     Sinclair page design tokens
 postcss.config.js
 vite.config.js             Build config, including the list of page entries
 wrangler.jsonc             Cloudflare static-assets deploy of dist/
@@ -64,10 +70,13 @@ wrangler.jsonc             Cloudflare static-assets deploy of dist/
 | --------------- | ------------------------- |
 | `/`             | `index.html` (Organic Gardening Australia) |
 | `/landscaping/` | `landscaping/index.html` (Notlee Landscapes) |
+| `/Sinclair-landscaping` | `Sinclair-landscaping.html` (Sinclair Landscaping Solutions) |
 
-Each page has its own stylesheet and Tailwind config, because the two designs use different colours and fonts under the same token names (`forest`, `leaf`, `wattle`).
+Each page has its own stylesheet and Tailwind config, because the designs use different colours and fonts under the same token names (`forest`, `cream`, `sage`, `leaf`, `wattle`).
 
 Cloudflare redirects `/landscaping` and `/landscaping/index.html` to `/landscaping/`.
+
+`Sinclair-landscaping.html` sits at the project root, so Cloudflare serves it at exactly `/Sinclair-landscaping` (no trailing slash) and redirects `/Sinclair-landscaping.html` and `/Sinclair-landscaping/` there. Paths are case-sensitive: `/sinclair-landscaping` is a 404.
 
 To add another page, for example `/about-us/`:
 
