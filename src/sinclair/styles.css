@@ -1,0 +1,14 @@
+/* Sinclair Landscaping Solutions page (/Sinclair-landscaping). Uses its own Tailwind config so its
+   tokens (forest, sage, cream, clay, ink; Fraunces + Inter) do not clash with the other pages. */
+@config "../../tailwind.sinclair.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from the design handoff */
+body { -webkit-font-smoothing: antialiased; }
+section[id] { scroll-margin-top: 88px; }
+details summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
+.faq-icon { transition: transform .2s ease; }

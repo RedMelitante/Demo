@@ -16,7 +16,8 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         main: resolve(root, 'index.html'),             // served at /
-        landscaping: resolve(root, 'landscaping/index.html') // served at /landscaping/
+        landscaping: resolve(root, 'landscaping/index.html'), // served at /landscaping/
+        sinclair: resolve(root, 'Sinclair-landscaping.html')  // served at /Sinclair-landscaping
       }
     }
   }
